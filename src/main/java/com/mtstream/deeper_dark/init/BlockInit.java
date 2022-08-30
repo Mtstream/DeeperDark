@@ -38,7 +38,7 @@ public class BlockInit{
 			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
 	public static final RegistryObject<Block> NULL_WELL = register("null_well",
-			() -> new SonicEmitterBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).dynamicShape().lightLevel((state)->{
+			() -> new NullWellBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).dynamicShape().lightLevel((state)->{
 				return state.getValue(NullWellBlock.ACTIVATED) ? 15 : 0;
 			})),
 			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));

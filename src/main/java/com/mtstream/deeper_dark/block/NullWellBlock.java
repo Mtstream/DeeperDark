@@ -1,7 +1,11 @@
 package com.mtstream.deeper_dark.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
@@ -11,6 +15,7 @@ import net.minecraft.world.level.block.CauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -30,11 +35,31 @@ public class NullWellBlock extends Block {
     }
 
     @Override
+    public void animateTick(BlockState state, Level lev, BlockPos pos, RandomSource ran) {
+        if(state.getValue(ACTIVATED)) {
+            for (int i = 0; i <= 5; i++) {
+                lev.addParticle(ParticleTypes.ASH,
+                        pos.getX() + 0.0625 + (ran.nextDouble() * 0.875),
+                        pos.getY() + 0.0625 + (ran.nextDouble() * 0.875),
+                        pos.getZ() + 0.0625 + (ran.nextDouble() * 0.875),
+                        0, 0.5, 0);
+                lev.addParticle(ParticleTypes.SMOKE, pos.getX()+ran.nextDouble(), pos.getY()+1, pos.getZ()+ran.nextDouble(), ran.nextDouble()-0.5, ran.nextDouble()/2, ran.nextDouble()-0.5);
+            }
+        }
+    }
+
+    @Override
     public void neighborChanged(BlockState state, Level lev, BlockPos pos, Block blk, BlockPos pos1, boolean b) {
         boolean hasSignal = lev.hasNeighborSignal(pos);
         boolean activated = state.getValue(ACTIVATED);
         if(hasSignal != activated){
             if(!lev.isClientSide){
+                if(hasSignal){
+                    lev.playSound(null, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 1.0f, 1.0f);
+                    lev.playSound(null, pos, SoundEvents.END_PORTAL_SPAWN, SoundSource.BLOCKS, 1.0f, 1.0f);
+                }else{
+                    lev.playSound(null, pos, SoundEvents.BARREL_CLOSE, SoundSource.BLOCKS, 1.0f, 1.0f);
+                }
                 lev.setBlock(pos, state.setValue(ACTIVATED, hasSignal), 3);
             }
         }
@@ -55,5 +80,6 @@ public class NullWellBlock extends Block {
     @Override
     public void entityInside(BlockState state, Level lev, BlockPos pos, Entity ent) {
         ent.hurt(DamageSource.OUT_OF_WORLD, 4);
+        ent.makeStuckInBlock(state, new Vec3(0.5,0.5,0.5));
     }
 }

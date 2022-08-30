@@ -3,7 +3,7 @@
     "activated=true": {
       "model": "deeper_dark:block/null_well_on"
     },
-    "activated=1": {
+    "activated=false": {
       "model": "deeper_dark:block/null_well_off"
     }
   }
