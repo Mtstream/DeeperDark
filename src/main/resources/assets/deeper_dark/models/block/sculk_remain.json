@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "deeper_dark:block/sculk_remain_top",
+    "side": "deeper_dark:block/sculk_remain"
+  }
+}

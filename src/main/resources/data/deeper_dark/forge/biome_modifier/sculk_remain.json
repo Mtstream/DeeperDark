@@ -1,0 +1,6 @@
+{
+ 	"type": "forge:add_features",
+ 	"biomes": "#minecraft:is_overworld",
+ 	"features":"deeper_dark:sculk_remain_placed",
+ 	"step": "underground_ores"
+}

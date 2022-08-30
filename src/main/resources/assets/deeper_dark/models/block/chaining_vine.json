@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "deeper_dark:block/chaining_vine"
+  },
+  "render_type": "cutout"
+}

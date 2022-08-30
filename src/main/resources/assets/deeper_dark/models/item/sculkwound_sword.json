@@ -1,0 +1,6 @@
+{
+	"parent":"item/handheld",
+	"textures":{
+		"layer0":"deeper_dark:item/sculkwound_sword"
+	}
+}

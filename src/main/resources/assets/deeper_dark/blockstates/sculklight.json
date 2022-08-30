@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "explode=0": {
+      "model": "deeper_dark:block/sculklight"
+    },
+    "explode=1": {
+      "model": "deeper_dark:block/exploded_sculklight_1"
+    },
+    "explode=2": {
+      "model": "deeper_dark:block/exploded_sculklight_2"
+    }
+  }
+}

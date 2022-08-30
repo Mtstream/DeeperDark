@@ -1,0 +1,119 @@
+{
+  "variants": {
+    "facing=north,charge=0": {
+      "model": "deeper_dark:block/sonic_emitter_0"
+    },
+    "facing=south,charge=0": {
+      "model": "deeper_dark:block/sonic_emitter_0",
+      "y": 180
+    },
+    "facing=east,charge=0": {
+      "model": "deeper_dark:block/sonic_emitter_0",
+      "y": 90
+    },
+    "facing=west,charge=0": {
+      "model": "deeper_dark:block/sonic_emitter_0",
+      "y": 270
+    },
+    "facing=up,charge=0": {
+      "model": "deeper_dark:block/sonic_emitter_0",
+      "x": 270
+    },
+    "facing=down,charge=0": {
+      "model": "deeper_dark:block/sonic_emitter_0",
+      "x": 90
+    },
+    "facing=north,charge=1": {
+      "model": "deeper_dark:block/sonic_emitter_1"
+    },
+    "facing=south,charge=1": {
+      "model": "deeper_dark:block/sonic_emitter_1",
+      "y": 180
+    },
+    "facing=east,charge=1": {
+      "model": "deeper_dark:block/sonic_emitter_1",
+      "y": 90
+    },
+    "facing=west,charge=1": {
+      "model": "deeper_dark:block/sonic_emitter_1",
+      "y": 270
+    },
+    "facing=up,charge=1": {
+      "model": "deeper_dark:block/sonic_emitter_1",
+      "x": 270
+    },
+    "facing=down,charge=1": {
+      "model": "deeper_dark:block/sonic_emitter_1",
+      "x": 90
+    },
+    "facing=north,charge=2": {
+      "model": "deeper_dark:block/sonic_emitter_2"
+    },
+    "facing=south,charge=2": {
+      "model": "deeper_dark:block/sonic_emitter_2",
+      "y": 180
+    },
+    "facing=east,charge=2": {
+      "model": "deeper_dark:block/sonic_emitter_2",
+      "y": 90
+    },
+    "facing=west,charge=2": {
+      "model": "deeper_dark:block/sonic_emitter_2",
+      "y": 270
+    },
+    "facing=up,charge=2": {
+      "model": "deeper_dark:block/sonic_emitter_2",
+      "x": 270
+    },
+    "facing=down,charge=2": {
+      "model": "deeper_dark:block/sonic_emitter_2",
+      "x": 90
+    },
+    "facing=north,charge=3": {
+      "model": "deeper_dark:block/sonic_emitter_3"
+    },
+    "facing=south,charge=3": {
+      "model": "deeper_dark:block/sonic_emitter_3",
+      "y": 180
+    },
+    "facing=east,charge=3": {
+      "model": "deeper_dark:block/sonic_emitter_3",
+      "y": 90
+    },
+    "facing=west,charge=3": {
+      "model": "deeper_dark:block/sonic_emitter_3",
+      "y": 270
+    },
+    "facing=up,charge=3": {
+      "model": "deeper_dark:block/sonic_emitter_3",
+      "x": 270
+    },
+    "facing=down,charge=3": {
+      "model": "deeper_dark:block/sonic_emitter_3",
+      "x": 90
+    },
+    "facing=north,charge=4": {
+      "model": "deeper_dark:block/sonic_emitter_4"
+    },
+    "facing=south,charge=4": {
+      "model": "deeper_dark:block/sonic_emitter_4",
+      "y": 180
+    },
+    "facing=east,charge=4": {
+      "model": "deeper_dark:block/sonic_emitter_4",
+      "y": 90
+    },
+    "facing=west,charge=4": {
+      "model": "deeper_dark:block/sonic_emitter_4",
+      "y": 270
+    },
+    "facing=up,charge=4": {
+      "model": "deeper_dark:block/sonic_emitter_4",
+      "x": 270
+    },
+    "facing=down,charge=4": {
+      "model": "deeper_dark:block/sonic_emitter_4",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "deeper_dark:block/sculk_remain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "deeper_dark:block/sculk_remain"
+    },
+    "axis=z": {
+      "model": "deeper_dark:block/sculk_remain",
+      "x": 90
+    }
+  }
+}
