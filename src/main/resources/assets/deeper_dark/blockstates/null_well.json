@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "activated=true": {
+      "model": "deeper_dark:block/null_well_on"
+    },
+    "activated=1": {
+      "model": "deeper_dark:block/null_well_off"
+    }
+  }
+}

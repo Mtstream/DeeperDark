@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "deeper_dark:block/sculk_case",
+    "side": "deeper_dark:block/sculk_case_x_off",
+    "top": "deeper_dark:block/null_well_top_closed"
+  }
+}

@@ -4,10 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.base.Supplier;
 import com.mtstream.deeper_dark.DeeperDark;
 
-import com.mtstream.deeper_dark.block.ChainingVineBlock;
-import com.mtstream.deeper_dark.block.SculkLightBlock;
-import com.mtstream.deeper_dark.block.SonicBoomBlock;
-import com.mtstream.deeper_dark.block.SonicEmitterBlock;
+import com.mtstream.deeper_dark.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -40,9 +37,11 @@ public class BlockInit{
 			})),
 			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
-	public static final RegistryObject<Block> SONIC_BOOM = register("sonic_boom",
-			() -> new SonicBoomBlock(BlockBehaviour.Properties.copy(Blocks.AIR).dynamicShape().noCollission()),
-			object -> () -> new BlockItem(object.get(), new Item.Properties()));
+	public static final RegistryObject<Block> NULL_WELL = register("null_well",
+			() -> new SonicEmitterBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).dynamicShape().lightLevel((state)->{
+				return state.getValue(NullWellBlock.ACTIVATED) ? 15 : 0;
+			})),
+			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
 	public static <T extends Block> RegistryObject<T> registerBlock(final String name,final Supplier<? extends T> sup){
 		return BLOCKREG.register(name, sup);
