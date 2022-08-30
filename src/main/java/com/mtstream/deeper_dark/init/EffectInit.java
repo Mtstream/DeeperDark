@@ -5,7 +5,6 @@ import com.mtstream.deeper_dark.DeeperDark;
 import com.mtstream.deeper_dark.effect.VibratingEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

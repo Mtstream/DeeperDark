@@ -1,10 +1,7 @@
 package com.mtstream.deeper_dark.effect;
 
 import com.mtstream.deeper_dark.init.SoundEventInit;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;

@@ -1,20 +1,12 @@
 package com.mtstream.deeper_dark.init;
 
-import java.util.List;
-
 import com.google.common.base.Supplier;
-import com.google.common.base.Suppliers;
 import com.mtstream.deeper_dark.DeeperDark;
-
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.features.OreFeatures;
-import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.VegetationPatchFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 

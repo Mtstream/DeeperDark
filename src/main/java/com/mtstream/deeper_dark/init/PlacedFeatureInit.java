@@ -1,12 +1,9 @@
 package com.mtstream.deeper_dark.init;
 
-import com.google.common.collect.ImmutableList;
 import com.mtstream.deeper_dark.DeeperDark;
-
 import com.mtstream.deeper_dark.gen.Generator;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
