@@ -1,10 +1,13 @@
-![deeper_dark.png](https://s2.loli.net/2022/08/27/JZmMEdWAnu5lQks.png)
+![deeper_dark.png](https://github.com/Mtstream/DeeperDark/blob/main/src/main/resources/assets/deeper_dark/textures/misc/banner.png)
 # <center>Deeper Dark</center>
 
-## Intro
+A Minecraft mod that expands on deep dark.
+
 ## Progress
 
 
-- [x] Sculk Vegetation
-- [x] SculkWound Tools
-- [x] Sculk
+- [x] New vegetation
+- [x] New tools
+- [x] Some redstone devices
+- [ ] New creatures
+- [ ] Some little things
