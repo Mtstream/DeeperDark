@@ -43,6 +43,18 @@ public class BlockInit{
 			})),
 			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
+	public static final RegistryObject<Block> DIM_LAMP = register("dim_lamp",
+			() -> new DimLampBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).dynamicShape().lightLevel(
+					(s)->{return s.getValue(DimLampBlock.LIT) ? 10 : 0;}
+			)),
+			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+
+	public static final RegistryObject<Block> DIM_LIGHT = register("dim_light",
+			() -> new DimLightBlock(BlockBehaviour.Properties.copy(Blocks.AIR).dynamicShape().lightLevel((s)->{
+				return 10;
+			})),
+			object -> () -> new BlockItem(object.get(), new Item.Properties()));
+
 	public static <T extends Block> RegistryObject<T> registerBlock(final String name,final Supplier<? extends T> sup){
 		return BLOCKREG.register(name, sup);
 	}

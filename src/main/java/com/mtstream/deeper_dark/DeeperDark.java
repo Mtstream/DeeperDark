@@ -19,5 +19,6 @@ public class DeeperDark {
 		PlacedFeatureInit.PLACED_FEATUREREG.register(ieb);
 		EffectInit.EFFECTREG.register(ieb);
 		SoundEventInit.SOUND_EVENTREG.register(ieb);
+		BlockEntityInit.BLOCK_ENTITYREG.register(ieb);
 	}
 }

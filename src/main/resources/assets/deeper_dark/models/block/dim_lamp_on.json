@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "deeper_dark:block/dim_lamp_on"
+  }
+}

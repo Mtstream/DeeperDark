@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "deeper_dark:block/dim_lamp_off"
+    },
+    "lit=true": {
+      "model": "deeper_dark:block/dim_lamp_on"
+    }
+  }
+}
