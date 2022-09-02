@@ -86,11 +86,13 @@ public class NullWellBlock extends Block {
     public void entityInside(BlockState state, Level lev, BlockPos pos, Entity ent) {
         List<Entity> entities = lev.getEntities(null, box(2,1,2,14,12,14).bounds().move(pos));
         for(Entity entity : entities){
-            if(!lev.isClientSide) ent.hurt(DamageSource.OUT_OF_WORLD, 4);
-            if(entity instanceof ItemEntity itemEnt){
-                if(itemEnt.getItem().is(Items.SCULK)){
-                    ServerLevel serverLev = lev.getServer().getLevel(lev.dimension());
-                    popExperience(serverLev, pos.above(), 1);
+            if(!lev.isClientSide) {
+                ent.hurt(DamageSource.OUT_OF_WORLD, 4);
+                if(entity instanceof ItemEntity itemEnt){
+                    if(itemEnt.getItem().is(Items.SCULK)){
+                        ServerLevel serverLev = lev.getServer().getLevel(lev.dimension());
+                        if(serverLev != null) popExperience(serverLev, pos.above(), 1);
+                    }
                 }
             }
         }
@@ -103,7 +105,7 @@ public class NullWellBlock extends Block {
     }
 
     public static void pullEntity(Entity ent, BlockPos pos){
-        Vec3 pullForce = ent.position().subtract(Vec3.atLowerCornerOf(pos).add(0.5,0.5,0.5)).scale(-2);
+        Vec3 pullForce = ent.position().subtract(Vec3.atLowerCornerOf(pos).add(0.5,0.5,0.5)).scale(ent instanceof ItemEntity ? -0.2 : -1.5);
         ent.setDeltaMovement(ent.getDeltaMovement().add(pullForce));
     }
 }

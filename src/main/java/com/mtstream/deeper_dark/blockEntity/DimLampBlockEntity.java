@@ -23,12 +23,12 @@ public class DimLampBlockEntity extends BlockEntity {
     public static <E extends BlockEntity> void tick(Level lev, BlockPos pos, BlockState state, DimLampBlockEntity ent) {
         if(!lev.isClientSide){
             if(state.getValue(DimLampBlock.LIT)){
-                for(BlockPos lightPos : getLightArea(pos, 3, 2)){
+                for(BlockPos lightPos : getLightArea(pos, 2, 2)){
                     if(lev.getBlockState(lightPos).is(BlockInit.DIM_LIGHT.get()))
-                        return;
+                        continue;
                     for(Direction dir : Direction.values()){
                         if(lev.getBlockState(lightPos.relative(dir)).is(BlockInit.DIM_LIGHT.get())){
-                            return;
+                            continue;
                         }
                     }
                     if(lev.isEmptyBlock(lightPos)) {
@@ -51,12 +51,12 @@ public class DimLampBlockEntity extends BlockEntity {
         for(int j = 1;j <= range;j++){
             area.addAll(makeLoop(pos, j, space));
         }
-        for(int i = 1;i <= range;i++){
+        for(int i = 0;i <= range;i++){
             for(int j = 1;j <= range;j++){
                 area.addAll(makeLoop(pos.above((space+1)*i), j, space));
             }
         }
-        for(int i = 1;i <= range;i++){
+        for(int i = 0;i <= range;i++){
             for(int j = 1;j <= range;j++){
                 area.addAll(makeLoop(pos.below((space+1)*i), j, space));
             }
@@ -69,9 +69,9 @@ public class DimLampBlockEntity extends BlockEntity {
         BlockPos origin = centre.west((space + 1) * radius).north((space + 1) * radius);
         BlockPos current = origin;
         for(Direction dir : new Direction[]{Direction.EAST, Direction.SOUTH, Direction.WEST, Direction.NORTH}){
-            for(int i = 0;i<(radius*2+1);i++){
-                current = current.relative(dir, space+1);
+            for(int i = 0;i<(radius*2);i++){
                 area.add(current);
+                current = current.relative(dir, space+1);
             }
         }
         return area;
