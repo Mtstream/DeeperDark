@@ -2,12 +2,18 @@ package com.mtstream.deeper_dark.block;
 
 import com.mtstream.deeper_dark.init.BlockInit;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SculkSpreader;
+import net.minecraft.world.level.block.WeepingVinesPlantBlock;
+import net.minecraft.world.level.block.entity.SculkCatalystBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -25,6 +31,17 @@ public class ChainingVineBlock extends Block {
     public ChainingVineBlock(Properties prop) {
         super(prop);
         this.registerDefaultState(this.getStateDefinition().any().setValue(AGE, 0));
+    }
+
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader levRd, BlockPos pos) {
+        boolean b = levRd.getBlockState(pos.above()).isFaceSturdy(levRd, pos.above(), Direction.DOWN);
+        return b || levRd.getBlockState(pos.above()).is(BlockInit.CHAINING_VINE.get());
+    }
+
+    @Override
+    public BlockState updateShape(BlockState state, Direction dir, BlockState state1, LevelAccessor levAc, BlockPos pos, BlockPos pos1) {
+        return state.canSurvive(levAc, pos) ? state : Blocks.AIR.defaultBlockState();
     }
 
     @Override
@@ -58,7 +75,7 @@ public class ChainingVineBlock extends Block {
             return;
         }
         if(lev.isEmptyBlock(pos.below())&&!lev.isClientSide){
-            if(new Random().nextInt(3) < 1){
+            if(new Random().nextInt(5) < 1){
                 lev.setBlock(pos.below(), BlockInit.SCULKLIGHT.get().defaultBlockState(), 3);
                 return;
             }

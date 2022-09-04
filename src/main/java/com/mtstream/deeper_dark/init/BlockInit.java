@@ -55,6 +55,10 @@ public class BlockInit{
 			})),
 			object -> () -> new BlockItem(object.get(), new Item.Properties()));
 
+	public static final RegistryObject<Block> PEDESTAL = register("pedestal",
+			() -> new PedestalBlock(BlockBehaviour.Properties.copy(Blocks.REINFORCED_DEEPSLATE).dynamicShape()),
+			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+
 	public static <T extends Block> RegistryObject<T> registerBlock(final String name,final Supplier<? extends T> sup){
 		return BLOCKREG.register(name, sup);
 	}

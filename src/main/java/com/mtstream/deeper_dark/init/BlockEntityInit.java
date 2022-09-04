@@ -5,6 +5,7 @@ import com.google.common.base.Supplier;
 import com.mtstream.deeper_dark.DeeperDark;
 import com.mtstream.deeper_dark.blockEntity.DimLampBlockEntity;
 import com.mtstream.deeper_dark.blockEntity.DimLightBlockEntity;
+import com.mtstream.deeper_dark.blockEntity.PedestalBlockEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -21,6 +22,9 @@ public class BlockEntityInit {
 
     public static final RegistryObject<BlockEntityType<DimLightBlockEntity>> DIM_LIGHT = register("dim_light",
             () -> BlockEntityType.Builder.of(DimLightBlockEntity::new, BlockInit.DIM_LIGHT.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<PedestalBlockEntity>> PEDESTAL = register("pedestal",
+            () -> BlockEntityType.Builder.of(PedestalBlockEntity::new, BlockInit.PEDESTAL.get()).build(null));
 
     public static <T extends BlockEntityType<?>> RegistryObject<T> register(String name, Supplier<T> sup){
         return BLOCK_ENTITYREG.register(name, sup);

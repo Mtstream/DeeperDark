@@ -1,5 +1,6 @@
 package com.mtstream.deeper_dark.block;
 
+import com.mtstream.deeper_dark.util.LevelUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import org.jetbrains.annotations.Nullable;
 
@@ -79,26 +81,9 @@ public class SonicEmitterBlock extends DirectionalBlock {
     }
 
     public static void sonicBoom(Level lev, BlockPos pos, Direction dir){
-        if(!lev.isClientSide){
-            lev.playSound((Player) null, pos, SoundEvents.WARDEN_SONIC_BOOM, SoundSource.BLOCKS, 1.0f, 1.0f);
-        }
-        BlockPos currentPos = pos;
-        for(int i = 0;i<=64;i++){
-            currentPos = currentPos.relative(dir);
-            if(!lev.getBlockState(currentPos).getCollisionShape(lev, currentPos).isEmpty() && !lev.isEmptyBlock(currentPos)){
-                break;
-            }
-            if(!lev.isClientSide){
-                List<Entity> ents = lev.getEntities(null, Shapes.block().bounds().move(currentPos));
-                for(Entity ent : ents){
-                    if(ent instanceof  LivingEntity){
-                        ent.hurt(new DamageSource("sonicBoom").bypassArmor().bypassEnchantments().setMagic(),10.0f);
-                    }
-                }
-            }
-            ServerLevel serverLev = lev.getServer().getLevel(lev.dimension());
-            serverLev.sendParticles(ParticleTypes.SONIC_BOOM, currentPos.getX()+0.5, currentPos.getY()+0.5, currentPos.getZ()+0.5, 1, 0, 0, 0, 0);
-        }
+        RandomSource ran = RandomSource.create();
+        lev.addParticle(ParticleTypes.GLOW, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, ran.nextDouble()-0.5, ran.nextDouble()-0.5, ran.nextDouble()-0.5);
+        LevelUtils.shootSonicBoom(lev, Vec3.atCenterOf(pos.relative(dir)), Vec3.atCenterOf(pos.relative(dir, 2)).subtract(Vec3.atCenterOf(pos)));
     }
 
 }
