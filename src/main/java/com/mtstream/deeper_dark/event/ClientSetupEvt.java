@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = DeeperDark.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSetupEvt {
 
+    private ClientSetupEvt(){}
+
     @SubscribeEvent
     public static void clientSetup(EntityRenderersEvent.RegisterRenderers evt){
         evt.registerBlockEntityRenderer(BlockEntityInit.PEDESTAL.get(), PedestalRenderer::new);
